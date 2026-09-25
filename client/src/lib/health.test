@@ -1,0 +1,17 @@
+import { describe, expect, it } from "vitest";
+import { checkLabel, overallHeadline } from "./health";
+
+describe("checkLabel", () => {
+  it("uses plain-language labels", () => {
+    expect(checkLabel("ok")).toBe("Working");
+    expect(checkLabel("error")).toBe("Problem");
+    expect(checkLabel("not_configured")).toBe("Not set up yet");
+  });
+});
+
+describe("overallHeadline", () => {
+  it("describes healthy and degraded reports", () => {
+    expect(overallHeadline("ok")).toBe("Everything is working");
+    expect(overallHeadline("degraded")).toBe("Something needs attention");
+  });
+});

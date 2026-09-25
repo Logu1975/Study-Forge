@@ -1,0 +1,96 @@
+
+/* StudyForge Stage 1 — Theme Tokens
+   Original visual themes. No copyrighted characters or artwork.
+*/
+
+:root {
+  --sf-bg: #0b1020;
+  --sf-surface: #151c32;
+  --sf-surface-soft: #1d2742;
+  --sf-text: #f8fafc;
+  --sf-text-muted: #b8c2d9;
+  --sf-primary: #a78bfa;
+  --sf-secondary: #22d3ee;
+  --sf-accent: #f472b6;
+  --sf-success: #34d399;
+  --sf-warning: #fbbf24;
+  --sf-danger: #fb7185;
+
+  --sf-radius-sm: 10px;
+  --sf-radius-md: 16px;
+  --sf-radius-lg: 24px;
+
+  --sf-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Sakura Dawn */
+[data-theme="sakura"] {
+  --sf-bg: #fff7fb;
+  --sf-surface: #ffffff;
+  --sf-surface-soft: #ffe8f2;
+  --sf-text: #2b1830;
+  --sf-text-muted: #765d72;
+  --sf-primary: #db5a91;
+  --sf-secondary: #9b7ade;
+  --sf-accent: #f59eaf;
+}
+
+/* Neon Night City */
+[data-theme="neon"] {
+  --sf-bg: #070812;
+  --sf-surface: #11152a;
+  --sf-surface-soft: #19203b;
+  --sf-text: #f4f7ff;
+  --sf-text-muted: #aab4d4;
+  --sf-primary: #22d3ee;
+  --sf-secondary: #c084fc;
+  --sf-accent: #f472b6;
+}
+
+/* Blaze Academy */
+[data-theme="blaze"] {
+  --sf-bg: #140b08;
+  --sf-surface: #24120d;
+  --sf-surface-soft: #351a10;
+  --sf-text: #fff7ed;
+  --sf-text-muted: #d6b89c;
+  --sf-primary: #fb923c;
+  --sf-secondary: #facc15;
+  --sf-accent: #f43f5e;
+}
+
+/* Moonlit Shrine */
+[data-theme="moon"] {
+  --sf-bg: #0c1026;
+  --sf-surface: #151a3b;
+  --sf-surface-soft: #202653;
+  --sf-text: #f5f3ff;
+  --sf-text-muted: #b9b5d5;
+  --sf-primary: #a78bfa;
+  --sf-secondary: #facc15;
+  --sf-accent: #818cf8;
+}
+
+/* Meadow Studio */
+[data-theme="meadow"] {
+  --sf-bg: #07130d;
+  --sf-surface: #10231a;
+  --sf-surface-soft: #173426;
+  --sf-text: #f0fdf4;
+  --sf-text-muted: #afd0bb;
+  --sf-primary: #4ade80;
+  --sf-secondary: #2dd4bf;
+  --sf-accent: #facc15;
+}
+
+/* High Contrast */
+[data-theme="contrast"] {
+  --sf-bg: #000000;
+  --sf-surface: #111111;
+  --sf-surface-soft: #222222;
+  --sf-text: #ffffff;
+  --sf-text-muted: #ffffff;
+  --sf-primary: #ffff00;
+  --sf-secondary: #00ffff;
+  --sf-accent: #ff66ff;
+}
