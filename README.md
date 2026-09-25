@@ -1,104 +1,301 @@
 # StudyForge
 
-A student learning and productivity web app: subjects, notes, a study timer,
-goals, quizzes, progress tracking, a local AI study assistant, and a set of
-original anime-inspired themes.
+**StudyForge is a student-focused learning and productivity web app built around one goal: helping students understand what to study, practice it, discover weaknesses, and improve.**
 
-> **Current status: Stage 0 (project setup).**
-> The app only shows a placeholder page with a live "System status" card.
-> This proves that the frontend and the backend are wired together.
-> Real features arrive stage by stage (see `docs/architecture.md`).
+> **Current status:** Working MVP / hackathon build.
 
-Everything here is free and runs on your own computer. No accounts, no API
-keys, nothing paid.
+## The Core Learning Loop
 
-## What you need
+StudyForge is designed around:
 
-- **Node.js 20.19+ or 22.12+** (LTS). Check with `node -v`. Download: https://nodejs.org
-- **npm** (installed together with Node)
+**Learn → Practice → Measure → Detect Weakness → Adapt → Improve**
 
-## First run
+Instead of treating studying as only reading or taking quizzes, StudyForge connects learning, practice, performance tracking, and adaptive recommendations into one workflow.
 
-Open a terminal in the project folder (the one containing this README), then:
+## What StudyForge Includes
+
+### 📚 Learn Mode
+
+* Beginner-friendly topic explanations
+* Examples and step-by-step reasoning
+* Formulas and important concepts
+* Common mistakes
+* Quick checks for understanding
+
+### 🧠 Topic Forge
+
+Enter a topic and StudyForge turns it into a focused learning experience.
+
+Example flow:
+
+**Topic → Learn Mode → Practice → Results → Adaptive Learning**
+
+### ✍️ Adaptive Practice
+
+StudyForge can generate topic-focused practice and record the result.
+
+After a practice session, the system updates the learner's progress and uses the result to guide future recommendations.
+
+### 📈 Adaptive Learning
+
+StudyForge tracks learning performance and provides information such as:
+
+* Overall mastery
+* Topic mastery
+* Strong topics
+* Topics that may need attention
+* Recommended next study actions
+
+The goal is to answer a simple question:
+
+> **"What should I study next?"**
+
+### 🎯 Student Productivity
+
+The dashboard also includes:
+
+* Study goals
+* Notes
+* Focus timer
+* Progress tracking
+* Statistics
+* AI Study Assistant
+* Avatar selection
+
+### 🎨 Theme Studio
+
+StudyForge includes multiple original visual themes, including:
+
+* Neon
+* Sakura
+* Blaze
+* Moon
+* Meadow
+* Contrast
+
+The themes are designed to make studying feel more personal and engaging.
+
+### 🛡️ Reliability System
+
+StudyForge includes a built-in reliability layer:
+
+* Bug Finder
+* System diagnostics
+* Health monitoring
+* Bug history
+* Error Boundary
+* Bug Shield recovery
+
+The goal is to make failures recoverable instead of simply showing a broken screen.
+
+---
+
+## Tech Stack
+
+* **React**
+* **TypeScript**
+* **Vite**
+* **Node.js**
+* **Express**
+* **CSS / theme variables**
+* **Vitest**
+* **Git + GitHub**
+
+The project uses a client/server structure so the frontend and backend can evolve independently.
+
+---
+
+## Project Structure
+
+```text
+studyforge/
+├── client/
+│   ├── src/
+│   │   ├── features/
+│   │   │   ├── adaptive/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── diagnostics/
+│   │   │   ├── learning/
+│   │   │   ├── theme/
+│   │   │   └── topicforge/
+│   │   ├── lib/
+│   │   ├── themes/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   └── vite.config.ts
+│
+├── server/
+│   └── src/
+│       ├── lib/
+│       ├── routes/
+│       ├── app.ts
+│       └── index.ts
+│
+├── docs/
+│   ├── architecture.md
+│   └── product-principles.md
+│
+├── package.json
+├── package-lock.json
+├── .nvmrc
+└── .gitignore
+```
+
+---
+
+## Getting Started
+
+### Requirements
+
+* Node.js 20.19+ or 22.12+
+* npm
+
+Check your versions:
+
+```bash
+node -v
+npm -v
+```
+
+### Install
+
+Clone the repository and open a terminal in the project folder:
 
 ```bash
 npm install
+```
+
+### Start StudyForge
+
+```bash
 npm run dev
 ```
 
-Open http://localhost:5173 in your browser. You should see the StudyForge
-placeholder page with a "System status" card that says everything is working.
+The development environment starts the frontend and backend together.
 
-To stop the app, press `Ctrl + C` in the terminal.
+Open:
 
-## Commands (run from the project root)
-
-| Command | What it does |
-| --- | --- |
-| `npm install` | Downloads everything both the client and server need |
-| `npm run dev` | Starts the server (port 4000) and the client (port 5173) together |
-| `npm test` | Runs the automated tests for server and client |
-| `npm run typecheck` | Checks the TypeScript code for mistakes without running it |
-| `npm run build` | Builds both parts for production (also a good "does it compile?" check) |
-| `npm run dev -w server` | Starts only the server |
-| `npm run dev -w client` | Starts only the client |
-
-## How the pieces connect
-
-```
-Browser  ->  http://localhost:5173  (client: React + Vite)
-                 |
-                 |  any request starting with /api is forwarded
-                 v
-             http://localhost:4000  (server: Express)
+```text
+http://localhost:5173
 ```
 
-The client never talks to port 4000 directly. Vite forwards `/api/...`
-requests for us (configured in `client/vite.config.ts`). This avoids cross-origin
-(CORS) problems and will make login cookies simple in Stage 2.
+The backend runs on:
 
-Try the server directly: http://localhost:4000/api/health
-
-## Project layout
-
-```
-studyforge/
-├── package.json        Root scripts. Runs client + server together.
-├── docs/               Product principles and architecture decisions.
-├── client/             The website students see (React + Vite + Tailwind).
-│   └── src/
-│       ├── main.tsx    Entry point: mounts React into index.html.
-│       ├── App.tsx     The page (a placeholder in Stage 0).
-│       ├── index.css   Tailwind import + accessibility base styles.
-│       ├── lib/        Small helpers (API calls, shared types).
-│       └── features/   One folder per feature. Stage 0 has "diagnostics".
-└── server/             The API (Node + Express).
-    └── src/
-        ├── .ts    Starts the server.
-        ├── app.ts      Builds the Express app (kept separate so it is testable).
-        ├── lib/        Config loading and the health-report logic.
-        └── routes/     One file per group of URLs. Stage 0 has "health".
+```text
+http://localhost:4000
 ```
 
-## Optional: settings (.env)
+### Health Check
 
-Stage 0 works with **no** `.env` file. When you need one (Stage 2 adds login),
-create `server/.env` by copying `server/.env.example`. To generate your own
-private session secret later:
+The backend health endpoint is:
 
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```text
+http://localhost:4000/api/health
 ```
 
-Never commit `.env` or share its contents. `.gitignore` already protects it.
+---
 
-## Troubleshooting
+## Useful Commands
 
-- **`npm install` warns about the Node version:** update Node to 20.19+ or 22.12+.
-- **"Port already in use":** another program is using 4000 or 5173. Close it, or
-  set `PORT` in `server/.env` and update the proxy target in `client/vite.config.ts`.
-- **Page says "We couldn't reach the server":** the server is not running. Start
-  everything with `npm run dev` from the project root.
-- **Windows PowerShell says "running scripts is disabled":** use Command Prompt
-  instead, or run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once.
-- **Anything else:** copy the full terminal output when asking for help.
+| Command                 | Purpose                                  |
+| ----------------------- | ---------------------------------------- |
+| `npm install`           | Install project dependencies             |
+| `npm run dev`           | Start client and server                  |
+| `npm test`              | Run automated tests                      |
+| `npm run typecheck`     | Check TypeScript without running the app |
+| `npm run build`         | Create the production build              |
+| `npm run dev -w server` | Start only the server                    |
+| `npm run dev -w client` | Start only the client                    |
+
+Before the hackathon release, the project was verified with TypeScript checks and a successful production build.
+
+---
+
+## Architecture
+
+```text
+                 ┌──────────────────────┐
+                 │      StudyForge      │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │   Topic Forge │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │   Learn Mode  │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │    Practice   │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │    Results    │
+                    └───────┬───────┘
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │  Adaptive Learning   │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                    Next Study Action
+```
+
+The frontend communicates with the Express backend through the development proxy.
+
+---
+
+## Reliability
+
+StudyForge includes diagnostic and recovery tools designed to make the application easier to test and maintain.
+
+The Bug Finder can perform system checks and maintain diagnostic history.
+
+The Error Boundary and Bug Shield provide a recovery path when a frontend error occurs.
+
+---
+
+## Privacy and Local Development
+
+The current hackathon build is designed to run locally during development.
+
+Do not commit private environment files or API keys.
+
+Create environment files only when required:
+
+```text
+server/.env
+```
+
+The repository's `.gitignore` prevents `.env` files from being committed.
+
+---
+
+## Demo
+
+🎥 **StudyForge Demo Video**
+
+*Add the final demo video link here before submitting the project.*
+
+---
+
+## Hackathon
+
+**Built for RevenueCat Shipaton 2026 — Next Gen Award.**
+
+StudyForge focuses on making studying more adaptive, measurable, and actionable for students.
+
+---
+
+## License
+
+StudyForge is released under the **MIT License**.
+
+See [`LICENSE`](LICENSE) for details.
