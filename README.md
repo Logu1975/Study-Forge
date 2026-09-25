@@ -282,7 +282,14 @@ The repository's `.gitignore` prevents `.env` files from being committed.
 
 🎥 **StudyForge Demo Video**
 
-*Add the final demo video link here before submitting the project.*
+## Demo
+
+🎥 **StudyForge Demo Video**
+
+[Watch the StudyForge Demo](https://youtu.be/nchKBnYtwwc)
+
+Built for RevenueCat Shipaton 2026 — Next Gen Award.
+
 
 ---
 
